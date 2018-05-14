@@ -1,0 +1,23 @@
+{
+  "name": "byob",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlesY712/BYOB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CharlesY712/BYOB/issues"
+  },
+  "homepage": "https://github.com/CharlesY712/BYOB#readme",
+  "dependencies": {
+    "knex": "^0.14.6",
+    "pg": "^7.4.3"
+  }
+}
