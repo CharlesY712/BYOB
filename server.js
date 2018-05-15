@@ -72,6 +72,13 @@ app.get('/api/v1/cities/:id', (req, res) => {
 app.post('/api/v1/states', (req, res) => {
   const state = req.body;
 
+  for (let requiredParameter of ['state', 'numberOfStations']) {
+    if (!state[requiredParameter]) {
+      return res.status(422)
+        .send(`You are missing a ${requiredParameter}`)
+    }
+  }
+
   database('states').insert(state, 'id')
     .then(state => {
       return res.status(201).json(`Successfully added state with id ${state} to database.`)
@@ -84,6 +91,13 @@ app.post('/api/v1/states', (req, res) => {
 app.post('/api/v1/cities', (req, res) => {
   const city = req.body;
 
+  for (let requiredParameter of ['city', 'BD', 'CNG', 'E85', 'ELEC', 'HY', 'LNG', 'LPG']) {
+    if (!city[requiredParameter]) {
+      return res.status(422)
+        .send(`You are missing a ${requiredParameter}`)
+    }
+  }
+
   database('cities').insert(city, 'id')
     .then(city => {
       return res.status(201).json(`Successfully added city with id ${city} to database.`)
@@ -91,4 +105,38 @@ app.post('/api/v1/cities', (req, res) => {
     .catch(err => {
       return res.status(500).json({err})
     })
+})
+
+app.patch('/api/v1/states/:id', (req, res) => {
+  const state = req.body;
+
+  if(state.state || state.numberOfStations) {
+    database('states').where('id', req.params.id).update(state)
+      .then(stateResponse => {
+        return res.status(200).json({stateResponse})
+      })
+      .catch(err => {
+        return res.status(500).json({err})
+      })
+  } else {
+    return res.status(422)
+      .send('You dont have the correct parameters.')
+  }
+})
+
+app.patch('/api/v1/cities/:id', (req, res) => {
+  const city = req.body;
+
+  if(city.city || city.BD || city.CNG || city.E85 || city.ELEC || city.HY || city.LNG || city.LPG ) {
+    database('cities').where('id', req.params.id).update(city)
+      .then(cityResponse => {
+        return res.status(200).json({cityResponse})
+      })
+      .catch(err => {
+        return res.status(500).json({err})
+      })
+  } else {
+    return res.status(422)
+      .send('You dont have the correct parameters.')
+  }
 })
