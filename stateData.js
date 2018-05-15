@@ -1,4 +1,4 @@
-export const stateData = [
+const stateData = [
   {
     state: 'AL',
     numberOfStations: 331
@@ -201,3 +201,4 @@ export const stateData = [
   }
 ]
 
+module.exports = stateData;

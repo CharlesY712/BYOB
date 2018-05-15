@@ -1,6 +1,7 @@
-export const cityData = [
+const cityData = [
   {
     name: "New York City",
+    state: "NY",
     state_id: 32,
     station_counts: {
       total: 594,
@@ -34,6 +35,7 @@ export const cityData = [
   },
   {
     name: "Los Angeles",
+    state: "CA",
     state_id: 5,
     station_counts: {
       total: 1021,
@@ -67,6 +69,7 @@ export const cityData = [
   },
   {
     name: "Chicago",
+    state: "IL",
     state_id: 13,
     station_counts: {
       total: 287,
@@ -100,6 +103,7 @@ export const cityData = [
   },
   {
     name: "Houston",
+    state: "TX",
     state_id: 43,
     station_counts: {
       total: 200,
@@ -133,6 +137,7 @@ export const cityData = [
   },
   {
     name: "Philadelphia",
+    state: "PA",
     state_id: 38,
     station_counts: {
       total: 94,
@@ -166,6 +171,7 @@ export const cityData = [
   },
   {
     name: "Phoenix",
+    state: "AZ",
     state_id: 3,
     station_counts: {
       total: 219,
@@ -199,6 +205,7 @@ export const cityData = [
   },
   {
     name: "San Antonio",
+    state: "TX",
     state_id: 43,
     station_counts: {
       total: 73,
@@ -232,6 +239,7 @@ export const cityData = [
   },
   {
     name: "San Diego",
+    state: "CA",
     state_id: 5,
     station_counts: {
       total: 416,
@@ -265,6 +273,7 @@ export const cityData = [
   },
   {
     name: "Dallas",
+    state: "TX",
     state_id: 43,
     station_counts: {
       total: 144,
@@ -298,6 +307,7 @@ export const cityData = [
   },
   {
     name: "San Jose",
+    state: "CA",
     state_id: 5,
     station_counts: {
       total: 526,
@@ -331,6 +341,7 @@ export const cityData = [
   },
   {
     name: "Austin",
+    state: "TX",
     state_id: 43,
     station_counts: {
       total: 360,
@@ -364,6 +375,7 @@ export const cityData = [
   },
   {
     name: "Jacksonville",
+    state: "FL",
     state_id: 9,
     station_counts: {
       total: 46,
@@ -397,6 +409,7 @@ export const cityData = [
   },
   {
     name: "Indianapolis",
+    state: "IN",
     state_id: 14,
     station_counts: {
       total: 33,
@@ -430,6 +443,7 @@ export const cityData = [
   },
   {
     name: "San Francisco",
+    state: "CA",
     state_id: 5,
     station_counts: {
       total: 528,
@@ -463,6 +477,7 @@ export const cityData = [
   },
   {
     name: "Columbus",
+    state: "OH",
     state_id: 35,
     station_counts: {
       total: 74,
@@ -496,6 +511,7 @@ export const cityData = [
   },
   {
     name: "Fort Worth",
+    state: "TX",
     state_id: 43,
     station_counts: {
       total: 33,
@@ -529,6 +545,7 @@ export const cityData = [
   },
   {
     name: "Charlotte",
+    state: "NC",
     state_id: 33,
     station_counts: {
       total: 131,
@@ -562,6 +579,7 @@ export const cityData = [
   },
   {
     name: "Detroit",
+    state: "MI",
     state_id: 22,
     station_counts: {
       total: 168,
@@ -595,6 +613,7 @@ export const cityData = [
   },
   {
     name: "El Paso",
+    state: "TX",
     state_id: 43,
     station_counts: {
       total: 27,
@@ -628,6 +647,7 @@ export const cityData = [
   },
   {
     name: "Memphis",
+    state: "TN",
     state_id: 42,
     station_counts: {
       total: 29,
@@ -661,6 +681,7 @@ export const cityData = [
   },
   {
     name: "Boston",
+    state: "MA",
     state_id: 20,
     station_counts: {
       total: 512,
@@ -694,6 +715,7 @@ export const cityData = [
   },
   {
     name: "Seattle",
+    state: "WA",
     state_id: 47,
     station_counts: {
       total: 526,
@@ -727,6 +749,7 @@ export const cityData = [
   },
   {
     name: "Denver",
+    state: "CO",
     state_id: 6,
     station_counts: {
       total: 222,
@@ -760,6 +783,7 @@ export const cityData = [
   },
   {
     name: "Washington",
+    state: "MD",
     state_id: 21,
     station_counts: {
       total: 450,
@@ -792,7 +816,8 @@ export const cityData = [
     }
   },
   {
-    name: "Nashville-Davidson",
+    name: "Nashville",
+    state: "TN",
     state_id: 42,
     station_counts: {
       total: 6,
@@ -826,6 +851,7 @@ export const cityData = [
   },
   {
     name: "Baltimore",
+    state: "MD",
     state_id: 21,
     station_counts: {
       total: 338,
@@ -859,6 +885,7 @@ export const cityData = [
   },
   {
     name: "Louisville",
+    state: "KY",
     state_id: 17,
     station_counts: {
       total: 47,
@@ -892,6 +919,7 @@ export const cityData = [
   },
   {
     name: "Portland",
+    state: "OR",
     state_id: 37,
     "station_counts ": {
       total: 282,
@@ -925,6 +953,7 @@ export const cityData = [
   },
   {
     name: "Oklahoma",
+    state: "OK",
     state_id: 27,
     station_counts: {
       total: 31,
@@ -958,6 +987,7 @@ export const cityData = [
   },
   {
     name: "Milwaukee",
+    state: "WI",
     state_id: 49,
     station_counts: {
       total: 70,
@@ -991,6 +1021,7 @@ export const cityData = [
   },
   {
     name: "LasVegas",
+    state: "NV",
     state_id: 28,
     station_counts: {
       total: 204,
@@ -1024,6 +1055,7 @@ export const cityData = [
   },
   {
     name: "Albuquerque",
+    state: "NM",
     state_id: 23,
     station_counts: {
       total: 38,
@@ -1057,6 +1089,7 @@ export const cityData = [
   },
   {
     name: "Tucson",
+    state: "AZ",
     state_id: 3,
     station_counts: {
       total: 52,
@@ -1090,6 +1123,7 @@ export const cityData = [
   },
   {
     name: "Fresno",
+    state: "CA",
     state_id: 5,
     station_counts: {
       total: 58,
@@ -1123,6 +1157,7 @@ export const cityData = [
   },
   {
     name: "Sacramento",
+    state: "CA",
     state_id: 5,
     station_counts: {
       total: 467,
@@ -1156,6 +1191,7 @@ export const cityData = [
   },
   {
     name: "LongBeach",
+    state: "CA",
     state_id: 5,
     station_counts: {
       total: 180,
@@ -1189,6 +1225,7 @@ export const cityData = [
   },
   {
     name: "Kansas",
+    state: "MO",
     state_id: 25,
     station_counts: {
       total: 486,
@@ -1222,6 +1259,7 @@ export const cityData = [
   },
   {
     name: "Mesa",
+    state: "AZ",
     state_id: 3,
     station_counts: {
       total: 45,
@@ -1255,6 +1293,7 @@ export const cityData = [
   },
   {
     name: "VirginiaBeach",
+    state: "VA",
     state_id: 46,
     station_counts: {
       total: 30,
@@ -1288,6 +1327,7 @@ export const cityData = [
   },
   {
     name: "Atlanta",
+    state: "GA",
     state_id: 10,
     station_counts: {
       total: 371,
@@ -1321,6 +1361,7 @@ export const cityData = [
   },
   {
     name: "ColoradoSprings",
+    state: "CO",
     state_id: 6,
     station_counts: {
       total: 62,
@@ -1354,6 +1395,7 @@ export const cityData = [
   },
   {
     name: "Raleigh",
+    state: "NC",
     state_id: 33,
     station_counts: {
       total: 178,
@@ -1387,6 +1429,7 @@ export const cityData = [
   },
   {
     name: "Omaha",
+    state: "NE",
     state_id: 27,
     station_counts: {
       total: 35,
@@ -1420,6 +1463,7 @@ export const cityData = [
   },
   {
     name: "Miami",
+    state: "FL",
     state_id: 9,
     station_counts: {
       total: 168,
@@ -1453,6 +1497,7 @@ export const cityData = [
   },
   {
     name: "Oakland",
+    state: "CA",
     state_id: 5,
     station_counts: {
       total: 273,
@@ -1486,6 +1531,7 @@ export const cityData = [
   },
   {
     name: "Tulsa",
+    state: "OK",
     state_id: 36,
     station_counts: {
       total: 30,
@@ -1519,6 +1565,7 @@ export const cityData = [
   },
   {
     name: "Minneapolis",
+    state: "MN",
     state_id: 23,
     station_counts: {
       total: 159,
@@ -1552,6 +1599,7 @@ export const cityData = [
   },
   {
     name: "Cleveland",
+    state: "OH",
     state_id: 35,
     station_counts: {
       total: 27,
@@ -1585,6 +1633,7 @@ export const cityData = [
   },
   {
     name: "Wichita",
+    state: "KS",
     state_id: 16,
     station_counts: {
       total: 19,
@@ -1618,6 +1667,7 @@ export const cityData = [
   },
   {
     name: "Arlington",
+    state: "VA",
     state_id: 43,
     station_counts: {
       total: 460,
@@ -1650,3 +1700,5 @@ export const cityData = [
     }
   }
 ];
+
+module.exports = cityData;
