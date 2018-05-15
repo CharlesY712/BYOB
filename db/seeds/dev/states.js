@@ -28,7 +28,7 @@ const createCity = (knex, city, state) => {
       let fuels = city.station_counts.fuels
       
       return knex('cities').insert({
-        name: city.name,
+        city: city.name,
         BD: fuels.BD.total,
         CNG: fuels.CNG.total,
         E85: fuels.E85.total,
