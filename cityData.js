@@ -921,7 +921,7 @@ const cityData = [
     name: "Portland",
     state: "OR",
     state_id: 37,
-    "station_counts ": {
+    station_counts: {
       total: 282,
       fuels: {
         BD: {
@@ -1664,7 +1664,8 @@ const cityData = [
         }
       }
     }
-  },
+  }
+  ,
   {
     name: "Arlington",
     state: "VA",
