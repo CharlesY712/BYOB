@@ -110,7 +110,7 @@ app.post('/api/v1/cities', (req, res) => {
 app.patch('/api/v1/states/:id', (req, res) => {
   const state = req.body;
 
-  if(state.state || state.numberOfStations) {
+  if (state.state || state.numberOfStations) {
     database('states').where('id', req.params.id).update(state)
       .then(stateResponse => {
         return res.status(200).json({stateResponse})
@@ -127,7 +127,7 @@ app.patch('/api/v1/states/:id', (req, res) => {
 app.patch('/api/v1/cities/:id', (req, res) => {
   const city = req.body;
 
-  if(city.city || city.BD || city.CNG || city.E85 || city.ELEC || city.HY || city.LNG || city.LPG ) {
+  if (city.city || city.BD || city.CNG || city.E85 || city.ELEC || city.HY || city.LNG || city.LPG ) {
     database('cities').where('id', req.params.id).update(city)
       .then(cityResponse => {
         return res.status(200).json({cityResponse})
@@ -139,4 +139,20 @@ app.patch('/api/v1/cities/:id', (req, res) => {
     return res.status(422)
       .send('You dont have the correct parameters.')
   }
+})
+
+app.delete('/api/v1/states/:id', (req, res) => {
+  database('states').where('id', req.params.id).del()
+    .then(id => res.sendStatus(204))
+    .catch(err => {
+      return res.status(500).json({err})
+    })
+})
+
+app.delete('/api/v1/cities/:id', (req, res) => {
+  database('cities').where('id', req.params.id).del()
+    .then(id => res.sendStatus(204))
+    .catch(err => {
+      return res.status(500).json({err})
+    })
 })
