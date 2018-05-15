@@ -1,51 +1,198 @@
-const stateData = {
-  'AL': 331,
-  'AK': 16,
-  'AZ': 667,
-  'AR': 166,
-  'CA': 19094,
-  'CO': 839,
-  'CT': 418,
-  'DE': 56,
-  'FL': 1493,
-  'GA': 951,
-  'HI': 298,
-  'ID': 131,
-  'IL': 1028,
-  'IN': 635,
-  'IA': 429,
-  'KS': 293,
-  'KY': 228,
-  'LA': 205,
-  'ME': 149,
-  'MA': 680,
-  'MI': 981,
-  'NM': 154,
-  'MS': 162,
-  'MO': 592,
-  'MT': 89,
-  'NE': 202,
-  'NV': 267,
-  'NH': 139,
-  'NJ': 336,
-  'NM': 154,
-  'NY': 1306,
-  'NC': 961,
-  'ND': 83,
-  'OH': 740,
-  'OK': 374,
-  'OR': 716,
-  'PA': 733,
-  'RI': 98,
-  'SC': 415,
-  'SD': 134,
-  'TN': 670,
-  'TX': 1988,
-  'UT': 302,
-  'VT': 181,
-  'VA': 698,
-  'WA': 1009,
-  'WV': 117,
-  'WI': 611,
-  'WY': 98 
-}
+const stateData = [
+  {
+    state: 'AL',
+    numberOfStations: 331
+  },
+  {
+    state: 'AK',
+    numberOfStations: 16
+  },
+  {
+    state: 'AZ',
+    numberOfStations: 667
+  },
+  {
+    state: 'AR',
+    numberOfStations: 166
+  },
+  {
+    state: 'CA',
+    numberOfStations: 19094
+  },
+  {
+    state: 'CO',
+    numberOfStations: 839
+  },
+  {
+    state: 'CT',
+    numberOfStations: 418
+  },
+  {
+    state: 'DE',
+    numberOfStations: 56
+  },
+  {
+    state: 'FL',
+    numberOfStations: 1493
+  },
+  {
+    state: 'GA',
+    numberOfStations: 951
+  },
+  {
+    state: 'HI',
+    numberOfStations: 298
+  },
+  {
+    state: 'ID',
+    numberOfStations: 131
+  },
+  {
+    state: 'IL',
+    numberOfStations: 1028
+  },
+  {
+    state: 'IN',
+    numberOfStations: 635
+  },
+  {
+    state: 'IA',
+    numberOfStations: 429
+  },
+  {
+    state: 'KS',
+    numberOfStations: 293
+  },
+  {
+    state: 'KY',
+    numberOfStations: 228
+  },
+  {
+    state: 'LA',
+    numberOfStations: 205
+  },
+  {
+    state: 'ME',
+    numberOfStations: 149
+  },
+  {
+    state: 'MA',
+    numberOfStations: 680
+  },
+  {
+    state: 'MI',
+    numberOfStations: 981
+  },
+  {
+    state: 'NM',
+    numberOfStations: 154
+  },
+  {
+    state: 'MS',
+    numberOfStations: 162
+  },
+  {
+    state: 'MO',
+    numberOfStations: 592
+  },
+  {
+    state: 'MT',
+    numberOfStations: 89
+  },
+  {
+    state: 'NE',
+    numberOfStations: 202
+  },
+  {
+    state: 'NV',
+    numberOfStations: 267
+  },
+  {
+    state: 'NH',
+    numberOfStations: 139
+  },
+  {
+    state: 'NJ',
+    numberOfStations: 336
+  },
+  {
+    state: 'NM',
+    numberOfStations: 154
+  },
+  {
+    state: 'NY',
+    numberOfStations: 1306
+  },
+  {
+    state: 'NC',
+    numberOfStations: 961
+  },
+  {
+    state: 'ND',
+    numberOfStations: 83
+  },
+  {
+    state: 'OH',
+    numberOfStations: 740
+  },
+  {
+    state: 'OK',
+    numberOfStations: 374
+  },
+  {
+    state: 'OR',
+    numberOfStations: 716
+  },
+  {
+    state: 'PA',
+    numberOfStations: 733
+  },
+  {
+    state: 'RI',
+    numberOfStations: 98
+  },
+  {
+    state: 'SC',
+    numberOfStations: 415
+  },
+  {
+    state: 'SD',
+    numberOfStations: 134
+  },
+  {
+    state: 'TN',
+    numberOfStations: 670
+  },
+  {
+    state: 'TX',
+    numberOfStations: 1988
+  },
+  {
+    state: 'UT',
+    numberOfStations: 302
+  },
+  {
+    state: 'VT',
+    numberOfStations: 181
+  },
+  {
+    state: 'VA',
+    numberOfStations: 698
+  },
+  {
+    state: 'WA',
+    numberOfStations: 1009
+  },
+  {
+    state: 'WV',
+    numberOfStations: 117
+  },
+  {
+    state: 'WI',
+    numberOfStations: 611
+  },
+  {
+    state: 'WY',
+    numberOfStations: 98 
+  }
+]
