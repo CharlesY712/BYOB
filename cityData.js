@@ -1,1632 +1,1702 @@
-const top25 = [
+const cityData = [
   {
-    "New York City, New York": {
-      "station_counts": {
-        "total": 594,
-        "fuels": {
-          "BD": {
-            "total": 1
+    "New York City": {
+      state_id: 32,
+      station_counts: {
+        total: 594,
+        fuels: {
+          BD: {
+            total: 1
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 585,
-            "stations": {
-              "total": 294
+          ELEC: {
+            total: 585,
+            stations: {
+              total: 294
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 7
+          CNG: {
+            total: 7
           },
-          "LPG": {
-            "total": 1
+          LPG: {
+            total: 1
           }
         }
       }
     }
   },
   {
-    "Los Angeles, California": {
-      "station_counts": {
-        "total": 1021,
-        "fuels": {
-          "BD": {
-            "total": 0
+    "Los Angeles": {
+      state_id: 5,
+      station_counts: {
+        total: 1021,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 994,
-            "stations": {
-              "total": 158
+          ELEC: {
+            total: 994,
+            stations: {
+              total: 158
             }
           },
-          "HY": {
-            "total": 1
+          HY: {
+            total: 1
           },
-          "LNG": {
-            "total": 3
+          LNG: {
+            total: 3
           },
-          "CNG": {
-            "total": 14
+          CNG: {
+            total: 14
           },
-          "LPG": {
-            "total": 9
+          LPG: {
+            total: 9
           }
         }
       }
     }
   },
   {
-    "Chicago, Illinois": {
-      "station_counts": {
-        "total": 287,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Chicago: {
+      state_id: 13,
+      station_counts: {
+        total: 287,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 5
+          E85: {
+            total: 5
           },
-          "ELEC": {
-            "total": 275,
-            "stations": {
-              "total": 93
+          ELEC: {
+            total: 275,
+            stations: {
+              total: 93
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 6
+          CNG: {
+            total: 6
           },
-          "LPG": {
-            "total": 1
+          LPG: {
+            total: 1
           }
         }
       }
     }
   },
   {
-    "Houston, Texas": {
-      "station_counts": {
-        "total": 200,
-        "fuels": {
-          "BD": {
-            "total": 1
+    Houston: {
+      state_id: 43,
+      station_counts: {
+        total: 200,
+        fuels: {
+          BD: {
+            total: 1
           },
-          "E85": {
-            "total": 1
+          E85: {
+            total: 1
           },
-          "ELEC": {
-            "total": 197,
-            "stations": {
-              "total": 58
+          ELEC: {
+            total: 197,
+            stations: {
+              total: 58
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 1
+          CNG: {
+            total: 1
           },
-          "LPG": {
-            "total": 0
+          LPG: {
+            total: 0
           }
         }
       }
     }
   },
   {
-    "Philadelphia, Pennsylvania": {
-      "station_counts": {
-        "total": 94,
-        "fuels": {
-          "BD": {
-            "total": 1
+    Philadelphia: {
+      state_id: 38,
+      station_counts: {
+        total: 94,
+        fuels: {
+          BD: {
+            total: 1
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 85,
-            "stations": {
-              "total": 41
+          ELEC: {
+            total: 85,
+            stations: {
+              total: 41
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 4
+          CNG: {
+            total: 4
           },
-          "LPG": {
-            "total": 4
+          LPG: {
+            total: 4
           }
         }
       }
     }
   },
   {
-    "Phoenix, Arizona": {
-      "station_counts": {
-        "total": 219,
-        "fuels": {
-          "BD": {
-            "total": 28
+    Phoenix: {
+      state_id: 3,
+      station_counts: {
+        total: 219,
+        fuels: {
+          BD: {
+            total: 28
           },
-          "E85": {
-            "total": 4
+          E85: {
+            total: 4
           },
-          "ELEC": {
-            "total": 171,
-            "stations": {
-              "total": 68
+          ELEC: {
+            total: 171,
+            stations: {
+              total: 68
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 2
+          LNG: {
+            total: 2
           },
-          "CNG": {
-            "total": 5
+          CNG: {
+            total: 5
           },
-          "LPG": {
-            "total": 9
+          LPG: {
+            total: 9
           }
         }
       }
     }
   },
   {
-    "San Antonio, Texas": {
-      "station_counts": {
-        "total": 73,
-        "fuels": {
-          "BD": {
-            "total": 0
+    "San Antonio": {
+      state_id: 43,
+      station_counts: {
+        total: 73,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 1
+          E85: {
+            total: 1
           },
-          "ELEC": {
-            "total": 70,
-            "stations": {
-              "total": 31
+          ELEC: {
+            total: 70,
+            stations: {
+              total: 31
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 1
+          CNG: {
+            total: 1
           },
-          "LPG": {
-            "total": 1
+          LPG: {
+            total: 1
           }
         }
       }
     }
   },
   {
-    "San Diego, California": {
-      "station_counts": {
-        "total": 416,
-        "fuels": {
-          "BD": {
-            "total": 3
+    "San Diego": {
+      state_id: 5,
+      station_counts: {
+        total: 416,
+        fuels: {
+          BD: {
+            total: 3
           },
-          "E85": {
-            "total": 3
+          E85: {
+            total: 3
           },
-          "ELEC": {
-            "total": 400,
-            "stations": {
-              "total": 94
+          ELEC: {
+            total: 400,
+            stations: {
+              total: 94
             }
           },
-          "HY": {
-            "total": 1
+          HY: {
+            total: 1
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 5
+          CNG: {
+            total: 5
           },
-          "LPG": {
-            "total": 4
+          LPG: {
+            total: 4
           }
         }
       }
     }
   },
   {
-    "Dallas, Texas": {
-      "station_counts": {
-        "total": 144,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Dallas: {
+      state_id: 43,
+      station_counts: {
+        total: 144,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 136,
-            "stations": {
-              "total": 60
+          ELEC: {
+            total: 136,
+            stations: {
+              total: 60
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 6
+          CNG: {
+            total: 6
           },
-          "LPG": {
-            "total": 2
+          LPG: {
+            total: 2
           }
         }
       }
     }
   },
   {
-    "San Jose, California": {
-      "station_counts": {
-        "total": 526,
-        "fuels": {
-          "BD": {
-            "total": 0
+    "San Jose": {
+      state_id: 5,
+      station_counts: {
+        total: 526,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 4
+          E85: {
+            total: 4
           },
-          "ELEC": {
-            "total": 511,
-            "stations": {
-              "total": 113
+          ELEC: {
+            total: 511,
+            stations: {
+              total: 113
             }
           },
-          "HY": {
-            "total": 2
+          HY: {
+            total: 2
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 5
+          CNG: {
+            total: 5
           },
-          "LPG": {
-            "total": 4
+          LPG: {
+            total: 4
           }
         }
       }
     }
   },
   {
-    "Austin, Texas": {
-      "station_counts": {
-        "total": 360,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Austin: {
+      state_id: 43,
+      station_counts: {
+        total: 360,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 1
+          E85: {
+            total: 1
           },
-          "ELEC": {
-            "total": 349,
-            "stations": {
-              "total": 111
+          ELEC: {
+            total: 349,
+            stations: {
+              total: 111
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 3
+          CNG: {
+            total: 3
           },
-          "LPG": {
-            "total": 7
+          LPG: {
+            total: 7
           }
         }
       }
     }
   },
   {
-    "Jacksonville, Florida": {
-      "station_counts": {
-        "total": 46,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Jacksonville: {
+      state_id: 9,
+      station_counts: {
+        total: 46,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 39,
-            "stations": {
-              "total": 19
+          ELEC: {
+            total: 39,
+            stations: {
+              total: 19
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 2
+          CNG: {
+            total: 2
           },
-          "LPG": {
-            "total": 5
+          LPG: {
+            total: 5
           }
         }
       }
     }
   },
   {
-    "Indianapolis, Indiana": {
-      "station_counts": {
-        "total": 33,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Indianapolis: {
+      state_id: 14,
+      station_counts: {
+        total: 33,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 3
+          E85: {
+            total: 3
           },
-          "ELEC": {
-            "total": 22,
-            "stations": {
-              "total": 9
+          ELEC: {
+            total: 22,
+            stations: {
+              total: 9
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 4
+          CNG: {
+            total: 4
           },
-          "LPG": {
-            "total": 4
+          LPG: {
+            total: 4
           }
         }
       }
     }
   },
   {
-    "San Francisco, California": {
-      "station_counts": {
-        "total": 528,
-        "fuels": {
-          "BD": {
-            "total": 1
+    "San Francisco": {
+      state_id: 5,
+      station_counts: {
+        total: 528,
+        fuels: {
+          BD: {
+            total: 1
           },
-          "E85": {
-            "total": 2
+          E85: {
+            total: 2
           },
-          "ELEC": {
-            "total": 520,
-            "stations": {
-              "total": 171
+          ELEC: {
+            total: 520,
+            stations: {
+              total: 171
             }
           },
-          "HY": {
-            "total": 3
+          HY: {
+            total: 3
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 1
+          CNG: {
+            total: 1
           },
-          "LPG": {
-            "total": 1
+          LPG: {
+            total: 1
           }
         }
       }
     }
   },
   {
-    "Columbus, Ohio": {
-      "station_counts": {
-        "total": 74,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Columbus: {
+      state_id: 35,
+      station_counts: {
+        total: 74,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 2
+          E85: {
+            total: 2
           },
-          "ELEC": {
-            "total": 63,
-            "stations": {
-              "total": 34
+          ELEC: {
+            total: 63,
+            stations: {
+              total: 34
             }
           },
-          "HY": {
-            "total": 1
+          HY: {
+            total: 1
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 3
+          CNG: {
+            total: 3
           },
-          "LPG": {
-            "total": 5
+          LPG: {
+            total: 5
           }
         }
       }
     }
   },
   {
-    "Fort Worth, Texas": {
-      "station_counts": {
-        "total": 33,
-        "fuels": {
-          "BD": {
-            "total": 0
+    "Fort Worth": {
+      state_id: 43,
+      station_counts: {
+        total: 33,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 1
+          E85: {
+            total: 1
           },
-          "ELEC": {
-            "total": 28,
-            "stations": {
-              "total": 13
+          ELEC: {
+            total: 28,
+            stations: {
+              total: 13
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 2
+          CNG: {
+            total: 2
           },
-          "LPG": {
-            "total": 2
+          LPG: {
+            total: 2
           }
         }
       }
     }
   },
   {
-    "Charlotte, North Carolina": {
-      "station_counts": {
-        "total": 131,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Charlotte: {
+      state_id: 33,
+      station_counts: {
+        total: 131,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 124,
-            "stations": {
-              "total": 40
+          ELEC: {
+            total: 124,
+            stations: {
+              total: 40
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 1
+          LNG: {
+            total: 1
           },
-          "CNG": {
-            "total": 3
+          CNG: {
+            total: 3
           },
-          "LPG": {
-            "total": 3
+          LPG: {
+            total: 3
           }
         }
       }
     }
   },
   {
-    "Detroit, Michigan": {
-      "station_counts": {
-        "total": 168,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Detroit: {
+      state_id: 22,
+      station_counts: {
+        total: 168,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 3
+          E85: {
+            total: 3
           },
-          "ELEC": {
-            "total": 164,
-            "stations": {
-              "total": 51
+          ELEC: {
+            total: 164,
+            stations: {
+              total: 51
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 0
+          CNG: {
+            total: 0
           },
-          "LPG": {
-            "total": 1
+          LPG: {
+            total: 1
           }
         }
       }
     }
   },
   {
-    "El Paso, Texas": {
-      "station_counts": {
-        "total": 27,
-        "fuels": {
-          "BD": {
-            "total": 0
+    "El Paso": {
+      state_id: 43,
+      station_counts: {
+        total: 27,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 24,
-            "stations": {
-              "total": 12
+          ELEC: {
+            total: 24,
+            stations: {
+              total: 12
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 1
+          LNG: {
+            total: 1
           },
-          "CNG": {
-            "total": 1
+          CNG: {
+            total: 1
           },
-          "LPG": {
-            "total": 1
+          LPG: {
+            total: 1
           }
         }
       }
     }
   },
   {
-    "Memphis, Tennessee": {
-      "station_counts": {
-        "total": 29,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Memphis: {
+      state_id: 42,
+      station_counts: {
+        total: 29,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 25,
-            "stations": {
-              "total": 13
+          ELEC: {
+            total: 25,
+            stations: {
+              total: 13
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 2
+          CNG: {
+            total: 2
           },
-          "LPG": {
-            "total": 2
+          LPG: {
+            total: 2
           }
         }
       }
     }
   },
   {
-    "Boston, Massachusetts": {
-      "station_counts": {
-        "total": 512,
-        "fuels": {
-          "BD": {
-            "total": 1
+    Boston: {
+      state_id: 20,
+      station_counts: {
+        total: 512,
+        fuels: {
+          BD: {
+            total: 1
           },
-          "E85": {
-            "total": 3
+          E85: {
+            total: 3
           },
-          "ELEC": {
-            "total": 499,
-            "stations": {
-              "total": 158
+          ELEC: {
+            total: 499,
+            stations: {
+              total: 158
             }
           },
-          "HY": {
-            "total": 1
+          HY: {
+            total: 1
           },
-          "LNG": {
-            "total": 1
+          LNG: {
+            total: 1
           },
-          "CNG": {
-            "total": 5
+          CNG: {
+            total: 5
           },
-          "LPG": {
-            "total": 2
+          LPG: {
+            total: 2
           }
         }
       }
     }
   },
   {
-    "Seattle, Washington": {
-      "station_counts": {
-        "total": 526,
-        "fuels": {
-          "BD": {
-            "total": 16
+    Seattle: {
+      state_id: 47,
+      station_counts: {
+        total: 526,
+        fuels: {
+          BD: {
+            total: 16
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 501,
-            "stations": {
-              "total": 149
+          ELEC: {
+            total: 501,
+            stations: {
+              total: 149
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 4
+          CNG: {
+            total: 4
           },
-          "LPG": {
-            "total": 5
+          LPG: {
+            total: 5
           }
         }
       }
     }
   },
   {
-    "Denver, Colorado": {
-      "station_counts": {
-        "total": 222,
-        "fuels": {
-          "BD": {
-            "total": 0
+    Denver: {
+      state_id: 6,
+      station_counts: {
+        total: 222,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 1
+          E85: {
+            total: 1
           },
-          "ELEC": {
-            "total": 213,
-            "stations": {
-              "total": 76
+          ELEC: {
+            total: 213,
+            stations: {
+              total: 76
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 2
+          CNG: {
+            total: 2
           },
-          "LPG": {
-            "total": 6
+          LPG: {
+            total: 6
           }
         }
       }
     }
   },
   {
-    "Washington, DC": {
-      "station_counts": {
-        "total": 450,
-        "fuels": {
-          "BD": {
-            "total": 8
+    Washington: {
+      state_id: 21,
+      station_counts: {
+        total: 450,
+        fuels: {
+          BD: {
+            total: 8
           },
-          "E85": {
-            "total": 3
+          E85: {
+            total: 3
           },
-          "ELEC": {
-            "total": 432,
-            "stations": {
-              "total": 154
+          ELEC: {
+            total: 432,
+            stations: {
+              total: 154
             }
           },
-          "HY": {
-            "total": 1
+          HY: {
+            total: 1
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 5
+          CNG: {
+            total: 5
           },
-          "LPG": {
-            "total": 1
+          LPG: {
+            total: 1
           }
         }
       }
     }
   },
   {
-    "Nashville-Davidson, Tennessee": {
-      "station_counts": {
-        "total": 6,
-        "fuels": {
-          "BD": {
-            "total": 0
+    "Nashville-Davidson": {
+      state_id: 42,
+      station_counts: {
+        total: 6,
+        fuels: {
+          BD: {
+            total: 0
           },
-          "E85": {
-            "total": 0
+          E85: {
+            total: 0
           },
-          "ELEC": {
-            "total": 5,
-            "stations": {
-              "total": 3
+          ELEC: {
+            total: 5,
+            stations: {
+              total: 3
             }
           },
-          "HY": {
-            "total": 0
+          HY: {
+            total: 0
           },
-          "LNG": {
-            "total": 0
+          LNG: {
+            total: 0
           },
-          "CNG": {
-            "total": 0
+          CNG: {
+            total: 0
           },
-          "LPG": {
-            "total": 1
+          LPG: {
+            total: 1
           }
         }
       }
     }
   },
   {
-  'Baltimore': {
-    "station_counts": {
-      "total": 338,
-      "fuels": {
-        "BD": {
-          "total": 1
-        },
-        "E85": {
-          "total": 3
-        },
-        "ELEC": {
-          "total": 326,
-          "stations": {
-            "total": 115
+    Baltimore: {
+      state_id: 21,
+      station_counts: {
+        total: 338,
+        fuels: {
+          BD: {
+            total: 1
+          },
+          E85: {
+            total: 3
+          },
+          ELEC: {
+            total: 326,
+            stations: {
+              total: 115
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 3
+          },
+          LPG: {
+            total: 5
           }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 3
-        },
-        "LPG": {
-          "total": 5
+        }
+      }
+    }
+  },
+  {
+    Louisville: {
+      state_id: 17,
+      station_counts: {
+        total: 47,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 9
+          },
+          ELEC: {
+            total: 37,
+            stations: {
+              total: 21
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 0
+          },
+          LPG: {
+            total: 1
+          }
+        }
+      }
+    }
+  },
+  {
+    Portland: {
+      state_id: 37,
+      "station_counts ": {
+        total: 282,
+        fuels: {
+          BD: {
+            total: 8
+          },
+          E85: {
+            total: 3
+          },
+          ELEC: {
+            total: 268,
+            stations: {
+              total: 91
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 1
+          },
+          LPG: {
+            total: 2
+          }
+        }
+      }
+    }
+  },
+  {
+    Oklahoma: {
+      state_id: 27,
+      station_counts: {
+        total: 31,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 3
+          },
+          ELEC: {
+            total: 13,
+            stations: {
+              total: 5
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 10
+          },
+          LPG: {
+            total: 5
+          }
+        }
+      }
+    }
+  },
+  {
+    Milwaukee: {
+      state_id: 49,
+      station_counts: {
+        total: 70,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 4
+          },
+          ELEC: {
+            total: 59,
+            stations: {
+              total: 23
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 5
+          },
+          LPG: {
+            total: 2
+          }
+        }
+      }
+    }
+  },
+  {
+    LasVegas: {
+      state_id: 28,
+      station_counts: {
+        total: 204,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 6
+          },
+          ELEC: {
+            total: 190,
+            stations: {
+              total: 60
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 3
+          },
+          LPG: {
+            total: 5
+          }
+        }
+      }
+    }
+  },
+  {
+    Albuquerque: {
+      state_id: 23,
+      station_counts: {
+        total: 38,
+        fuels: {
+          BD: {
+            total: 1
+          },
+          E85: {
+            total: 1
+          },
+          ELEC: {
+            total: 29,
+            stations: {
+              total: 14
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 2
+          },
+          LPG: {
+            total: 5
+          }
+        }
+      }
+    }
+  },
+  {
+    Tucson: {
+      state_id: 3,
+      station_counts: {
+        total: 52,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 2
+          },
+          ELEC: {
+            total: 43,
+            stations: {
+              total: 25
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 4
+          },
+          LPG: {
+            total: 3
+          }
+        }
+      }
+    }
+  },
+  {
+    Fresno: {
+      state_id: 5,
+      station_counts: {
+        total: 58,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 1
+          },
+          ELEC: {
+            total: 51,
+            stations: {
+              total: 13
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 2
+          },
+          LPG: {
+            total: 4
+          }
+        }
+      }
+    }
+  },
+  {
+    Sacramento: {
+      state_id: 5,
+      station_counts: {
+        total: 467,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 7
+          },
+          ELEC: {
+            total: 449,
+            stations: {
+              total: 94
+            }
+          },
+          HY: {
+            total: 1
+          },
+          LNG: {
+            total: 1
+          },
+          CNG: {
+            total: 4
+          },
+          LPG: {
+            total: 5
+          }
+        }
+      }
+    }
+  },
+  {
+    LongBeach: {
+      state_id: 5,
+      station_counts: {
+        total: 180,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 0
+          },
+          ELEC: {
+            total: 169,
+            stations: {
+              total: 53
+            }
+          },
+          HY: {
+            total: 1
+          },
+          LNG: {
+            total: 3
+          },
+          CNG: {
+            total: 6
+          },
+          LPG: {
+            total: 1
+          }
+        }
+      }
+    }
+  },
+  {
+    Kansas: {
+      state_id: 25,
+      station_counts: {
+        total: 486,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 1
+          },
+          ELEC: {
+            total: 476,
+            stations: {
+              total: 90
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 1
+          },
+          CNG: {
+            total: 6
+          },
+          LPG: {
+            total: 2
+          }
+        }
+      }
+    }
+  },
+  {
+    Mesa: {
+      state_id: 3,
+      station_counts: {
+        total: 45,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 0
+          },
+          ELEC: {
+            total: 39,
+            stations: {
+              total: 15
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 0
+          },
+          LPG: {
+            total: 6
+          }
+        }
+      }
+    }
+  },
+  {
+    VirginiaBeach: {
+      state_id: 46,
+      station_counts: {
+        total: 30,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 1
+          },
+          ELEC: {
+            total: 29,
+            stations: {
+              total: 13
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 0
+          },
+          LPG: {
+            total: 0
+          }
+        }
+      }
+    }
+  },
+  {
+    Atlanta: {
+      state_id: 10,
+      station_counts: {
+        total: 371,
+        fuels: {
+          BD: {
+            total: 2
+          },
+          E85: {
+            total: 2
+          },
+          ELEC: {
+            total: 360,
+            stations: {
+              total: 107
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 5
+          },
+          LPG: {
+            total: 2
+          }
+        }
+      }
+    }
+  },
+  {
+    state_id: 6,
+    ColoradoSprings: {
+      station_counts: {
+        total: 62,
+        fuels: {
+          BD: {
+            total: 2
+          },
+          E85: {
+            total: 14
+          },
+          ELEC: {
+            total: 41,
+            stations: {
+              total: 17
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 2
+          },
+          LPG: {
+            total: 3
+          }
+        }
+      }
+    }
+  },
+  {
+    Raleigh: {
+      state_id: 33,
+      station_counts: {
+        total: 178,
+        fuels: {
+          BD: {
+            total: 4
+          },
+          E85: {
+            total: 1
+          },
+          ELEC: {
+            total: 167,
+            stations: {
+              total: 61
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 1
+          },
+          LPG: {
+            total: 5
+          }
+        }
+      }
+    }
+  },
+  {
+    Omaha: {
+      state_id: 27,
+      station_counts: {
+        total: 35,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 4
+          },
+          ELEC: {
+            total: 25,
+            stations: {
+              total: 10
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 5
+          },
+          LPG: {
+            total: 1
+          }
+        }
+      }
+    }
+  },
+  {
+    Miami: {
+      state_id: 9,
+      station_counts: {
+        total: 168,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 3
+          },
+          ELEC: {
+            total: 162,
+            stations: {
+              total: 66
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 1
+          },
+          LPG: {
+            total: 2
+          }
+        }
+      }
+    }
+  },
+  {
+    Oakland: {
+      state_id: 5,
+      station_counts: {
+        total: 273,
+        fuels: {
+          BD: {
+            total: 1
+          },
+          E85: {
+            total: 2
+          },
+          ELEC: {
+            total: 264,
+            stations: {
+              total: 58
+            }
+          },
+          HY: {
+            total: 4
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 1
+          },
+          LPG: {
+            total: 1
+          }
+        }
+      }
+    }
+  },
+  {
+    Tulsa: {
+      state_id: 36,
+      station_counts: {
+        total: 30,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 1
+          },
+          ELEC: {
+            total: 20,
+            stations: {
+              total: 6
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 6
+          },
+          LPG: {
+            total: 3
+          }
+        }
+      }
+    }
+  },
+  {
+    Minneapolis: {
+      state_id: 23,
+      station_counts: {
+        total: 159,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 17
+          },
+          ELEC: {
+            total: 141,
+            stations: {
+              total: 54
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 0
+          },
+          LPG: {
+            total: 1
+          }
+        }
+      }
+    }
+  },
+  {
+    Cleveland: {
+      state_id: 35,
+      station_counts: {
+        total: 27,
+        fuels: {
+          BD: {
+            total: 0
+          },
+          E85: {
+            total: 1
+          },
+          ELEC: {
+            total: 22,
+            stations: {
+              total: 10
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 0
+          },
+          LPG: {
+            total: 4
+          }
+        }
+      }
+    }
+  },
+  {
+    Wichita: {
+      state_id: 16,
+      station_counts: {
+        total: 19,
+        fuels: {
+          BD: {
+            total: 1
+          },
+          E85: {
+            total: 4
+          },
+          ELEC: {
+            total: 11,
+            stations: {
+              total: 6
+            }
+          },
+          HY: {
+            total: 0
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 1
+          },
+          LPG: {
+            total: 2
+          }
+        }
+      }
+    }
+  },
+  {
+    Arlington: {
+      state_id: 43,
+      station_counts: {
+        total: 460,
+        fuels: {
+          BD: {
+            total: 5
+          },
+          E85: {
+            total: 2
+          },
+          ELEC: {
+            total: 448,
+            stations: {
+              total: 162
+            }
+          },
+          HY: {
+            total: 1
+          },
+          LNG: {
+            total: 0
+          },
+          CNG: {
+            total: 2
+          },
+          LPG: {
+            total: 2
+          }
         }
       }
     }
   }
-},
-{
-  'Louisville': {
-    "station_counts": {
-      "total": 47,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 9
-        },
-        "ELEC": {
-          "total": 37,
-          "stations": {
-            "total": 21
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 0
-        },
-        "LPG": {
-          "total": 1
-        }
-      }
-    }
-  }
-},
-{
-  'Portland': {
-    "station_counts ": {
-      "total": 282,
-      "fuels": {
-        "BD": {
-          "total": 8
-        },
-        "E85": {
-          "total": 3
-        },
-        "ELEC": {
-          "total": 268,
-          "stations": {
-            "total": 91
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 1
-        },
-        "LPG": {
-          "total": 2
-        }
-      }
-    }
-  }
-},
-{
-  'Oklahoma': {
-    "station_counts": {
-      "total": 31,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 3
-        },
-        "ELEC": {
-          "total": 13,
-          "stations": {
-            "total": 5
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 10
-        },
-        "LPG": {
-          "total": 5
-        }
-      }
-    }
-  }
-}, {
-  'Milwaukee': {
-    "station_counts": {
-      "total": 70,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 4
-        },
-        "ELEC": {
-          "total": 59,
-          "stations": {
-            "total": 23
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 5
-        },
-        "LPG": {
-          "total": 2
-        }
-      }
-    }
-  }
-}, {
-  'LasVegas': {
-    "station_counts": {
-      "total": 204,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 6
-        },
-        "ELEC": {
-          "total": 190,
-          "stations": {
-            "total": 60
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 3
-        },
-        "LPG": {
-          "total": 5
-        }
-      }
-    }
-  }
-}, {
-  'Albuquerque': {
-    "station_counts": {
-      "total": 38,
-      "fuels": {
-        "BD": {
-          "total": 1
-        },
-        "E85": {
-          "total": 1
-        },
-        "ELEC": {
-          "total": 29,
-          "stations": {
-            "total": 14
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 2
-        },
-        "LPG": {
-          "total": 5
-        }
-      }
-    }
-  }
-}, {
-  'Tucson': {
-    "station_counts": {
-      "total": 52,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 2
-        },
-        "ELEC": {
-          "total": 43,
-          "stations": {
-            "total": 25
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 4
-        },
-        "LPG": {
-          "total": 3
-        }
-      }
-    }
-  }
-}, {
-  'Fresno': {
-    "station_counts": {
-      "total": 58,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 1
-        },
-        "ELEC": {
-          "total": 51,
-          "stations": {
-            "total": 13
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 2
-        },
-        "LPG": {
-          "total": 4
-        }
-      }
-    }
-  }
-}, {
-  'Sacramento': {
-    "station_counts": {
-      "total": 467,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 7
-        },
-        "ELEC": {
-          "total": 449,
-          "stations": {
-            "total": 94
-          }
-        },
-        "HY": {
-          "total": 1
-        },
-        "LNG": {
-          "total": 1
-        },
-        "CNG": {
-          "total": 4
-        },
-        "LPG": {
-          "total": 5
-        }
-      }
-    }
-  }
-}, {
-  'LongBeach': {
-    "station_counts": {
-      "total": 180,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 0
-        },
-        "ELEC": {
-          "total": 169,
-          "stations": {
-            "total": 53
-          }
-        },
-        "HY": {
-          "total": 1
-        },
-        "LNG": {
-          "total": 3
-        },
-        "CNG": {
-          "total": 6
-        },
-        "LPG": {
-          "total": 1
-        }
-      }
-    }
-  }
-}, {
-  'Kansas': {
-    "station_counts": {
-      "total": 486,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 1
-        },
-        "ELEC": {
-          "total": 476,
-          "stations": {
-            "total": 90
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 1
-        },
-        "CNG": {
-          "total": 6
-        },
-        "LPG": {
-          "total": 2
-        }
-      }
-    }
-  }
-}, {
-  'Mesa': {
-    "station_counts": {
-      "total": 45,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 0
-        },
-        "ELEC": {
-          "total": 39,
-          "stations": {
-            "total": 15
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 0
-        },
-        "LPG": {
-          "total": 6
-        }
-      }
-    }
-  }
-}, {
-  'VirginiaBeach': {
-    "station_counts": {
-      "total": 30,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 1
-        },
-        "ELEC": {
-          "total": 29,
-          "stations": {
-            "total": 13
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 0
-        },
-        "LPG": {
-          "total": 0
-        }
-      }
-    }
-  }
-}, {
-  'Atlanta': {
-    "station_counts": {
-      "total": 371,
-      "fuels": {
-        "BD": {
-          "total": 2
-        },
-        "E85": {
-          "total": 2
-        },
-        "ELEC": {
-          "total": 360,
-          "stations": {
-            "total": 107
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 5
-        },
-        "LPG": {
-          "total": 2
-        }
-      }
-    }
-  }
-}, {
-  'ColoradoSprings': {
-    "station_counts": {
-      "total": 62,
-      "fuels": {
-        "BD": {
-          "total": 2
-        },
-        "E85": {
-          "total": 14
-        },
-        "ELEC": {
-          "total": 41,
-          "stations": {
-            "total": 17
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 2
-        },
-        "LPG": {
-          "total": 3
-        }
-      }
-    }
-  }
-}, {
-  'Raleigh': {
-    "station_counts": {
-      "total": 178,
-      "fuels": {
-        "BD": {
-          "total": 4
-        },
-        "E85": {
-          "total": 1
-        },
-        "ELEC": {
-          "total": 167,
-          "stations": {
-            "total": 61
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 1
-        },
-        "LPG": {
-          "total": 5
-        }
-      }
-    }
-  }
-}, {
-  'Omaha': {
-    "station_counts": {
-      "total": 35,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 4
-        },
-        "ELEC": {
-          "total": 25,
-          "stations": {
-            "total": 10
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 5
-        },
-        "LPG": {
-          "total": 1
-        }
-      }
-    }
-  }
-}, {
-  'Miami': {
-    "station_counts": {
-      "total": 168,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 3
-        },
-        "ELEC": {
-          "total": 162,
-          "stations": {
-            "total": 66
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 1
-        },
-        "LPG": {
-          "total": 2
-        }
-      }
-    }
-  }
-}, {
-  'Oakland': {
-    "station_counts": {
-      "total": 273,
-      "fuels": {
-        "BD": {
-          "total": 1
-        },
-        "E85": {
-          "total": 2
-        },
-        "ELEC": {
-          "total": 264,
-          "stations": {
-            "total": 58
-          }
-        },
-        "HY": {
-          "total": 4
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 1
-        },
-        "LPG": {
-          "total": 1
-        }
-      }
-    }
-  }
-}, {
-  'Tulsa': {
-    "station_counts": {
-      "total": 30,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 1
-        },
-        "ELEC": {
-          "total": 20,
-          "stations": {
-            "total": 6
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 6
-        },
-        "LPG": {
-          "total": 3
-        }
-      }
-    }
-  }
-}, {
-  'Minneapolis': {
-    "station_counts": {
-      "total": 159,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 17
-        },
-        "ELEC": {
-          "total": 141,
-          "stations": {
-            "total": 54
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 0
-        },
-        "LPG": {
-          "total": 1
-        }
-      }
-    }
-  }
-}, {
-  'Cleveland': {
-    "station_counts": {
-      "total": 27,
-      "fuels": {
-        "BD": {
-          "total": 0
-        },
-        "E85": {
-          "total": 1
-        },
-        "ELEC": {
-          "total": 22,
-          "stations": {
-            "total": 10
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 0
-        },
-        "LPG": {
-          "total": 4
-        }
-      }
-    }
-  }
-}, {
-  'Wichita': {
-    "station_counts": {
-      "total": 19,
-      "fuels": {
-        "BD": {
-          "total": 1
-        },
-        "E85": {
-          "total": 4
-        },
-        "ELEC": {
-          "total": 11,
-          "stations": {
-            "total": 6
-          }
-        },
-        "HY": {
-          "total": 0
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 1
-        },
-        "LPG": {
-          "total": 2
-        }
-      }
-    }
-  }
-}, {
-  'Arlington': {
-    "station_counts": {
-      "total": 460,
-      "fuels": {
-        "BD": {
-          "total": 5
-        },
-        "E85": {
-          "total": 2
-        },
-        "ELEC": {
-          "total": 448,
-          "stations": {
-            "total": 162
-          }
-        },
-        "HY": {
-          "total": 1
-        },
-        "LNG": {
-          "total": 0
-        },
-        "CNG": {
-          "total": 2
-        },
-        "LPG": {
-          "total": 2
-        }
-      }
-    }
-  }
-}
-
-]
+];

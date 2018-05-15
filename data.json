@@ -80,11 +80,15 @@ const stateData = [
     numberOfStations: 680
   },
   {
+    state: 'MD',
+    numberOfStations: 684
+  },
+  {
     state: 'MI',
     numberOfStations: 981
   },
   {
-    state: 'NM',
+    state: 'MN',
     numberOfStations: 154
   },
   {
@@ -196,3 +200,4 @@ const stateData = [
     numberOfStations: 98 
   }
 ]
+
