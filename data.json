@@ -1,4 +1,4 @@
-const stateData = {
+const stateData = {  
   'AL': 331,
   'AK': 16,
   'AZ': 667,
@@ -19,8 +19,9 @@ const stateData = {
   'LA': 205,
   'ME': 149,
   'MA': 680,
+  'MD': 684,
   'MI': 981,
-  'NM': 154,
+  'MN': 154,
   'MS': 162,
   'MO': 592,
   'MT': 89,
