@@ -1,4 +1,4 @@
-const stateData = [
+export const stateData = [
   {
     state: 'AL',
     numberOfStations: 331

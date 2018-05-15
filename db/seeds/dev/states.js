@@ -1,3 +1,6 @@
+import {cityData} from '../../../cityData';
+import {stateData} from '../../../data.json';
+
 const createStates = (knex, state) => {
   return knex('state').insert({
     state: state.state,
@@ -9,7 +12,8 @@ const createStates = (knex, state) => {
       state.cities.forEach(city => {
         cityPromises.push(
           createCity(knex, {
-            name: 
+            name: city.name,
+            
           })
         )
       });
