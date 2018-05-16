@@ -1,1 +1,1 @@
-# BYOB
+# BYOB [![Build Status](https://travis-ci.org/CharlesY712/BYOB.svg?branch=master)](https://travis-ci.org/CharlesY712/BYOB)
