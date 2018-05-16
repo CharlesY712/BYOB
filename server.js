@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const jwt = require('jsonwebtoken');
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -10,12 +11,54 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 3000);
+app.set('secretKey', 'delinquents');
 
 app.locals.title = 'BYOB';
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}`)
 })
+
+const checkAuth = (request, response, next) => {
+  console.log('working');
+  
+  const { token } = request.headers;
+  const cert = app.get('secretKey');
+
+  console.log(token);
+  
+  if (token) {
+    jwt.verify(token, cert, (err, decoded) => {
+      if (!decoded) {
+        return response.status(403).json('Invalid Token')
+      } else {
+        next()
+      }
+    })
+  } else {
+    return response.status(403).json({message: 'You must be authorized to hit this endpoint.'})
+  }
+}
+
+// const checkAuth = (request, response, next) => {
+//   const { token } = request.body;
+//   if (token) {
+//     try {
+//       const decoded = jwt.verify(token, app.get('secretKey'))
+//       const isLegit = app.locals.appNames.find((app) => app.appName === decoded.appName)
+//       if (isLegit) {
+//         next();
+//       } else {
+//         response.status(403).json({message: 'App Name Does Not Exist'})
+//       }
+//     } catch (error) {
+//       response.status(403).json({message: 'Invalid token inner'})
+//     }
+//   } else {
+//     response.status(403).json({message: 'Invalid token outer'})
+//   }
+// }
+
 
 app.get('/', (req, res) => {
   res.send('HIIIII!!!!!')
@@ -85,7 +128,8 @@ app.get('/api/v1/cities/:id', (req, res) => {
     })
 })
 
-app.post('/api/v1/states', (req, res) => {
+app.post('/api/v1/states', checkAuth, (req, res) => {
+  
   const state = req.body;
 
   for (let requiredParameter of ['state', 'numberOfStations']) {
@@ -171,4 +215,16 @@ app.delete('/api/v1/cities/:id', (req, res) => {
     .catch(err => {
       return res.status(500).json({err})
     })
+})
+
+app.post('/authenticate', (request, response) => {
+  const {email, appName} = request.body;
+
+  if (email && appName) {
+    const token = jwt.sign({email, appName}, app.get('secretKey'), {expiresIn: '1hr'})
+
+    return response.status(201).json({token})
+  } else {
+    response.status(404).json('You dont have the correct parameters.')
+  }
 })
