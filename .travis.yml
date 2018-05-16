@@ -1,0 +1,13 @@
+language: node_js
+node_js: node
+services: postgresql
+before_script:
+  - psql -c 'create database alternativefuel_test;' -U postgres
+notifications:
+  email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: IvKAF8s8I3C48LQOmc9ln4I3GHdLdbzQZHzG+owovfZFUqDLKiQk76Acojd7bOVcPm1gi6/WDuO1S44jT0NsdJ4hGqJMTQ5Tijy5utz+jKNMkCXDP4+wh6olzDl9QywVPdGk9Ow5onV/eTga+5DCqVZUh8lh7Nwc3iInYgpRQ2FyOk8WzfvFIT7jd28uIZFKfhYyAVhOXzOiCo7M8ysdjYcvgAOzifWQ1wUcqDVfHSrj9lVKatqLgcvnfGXuJiRNroAbC5j8QYUELYuJ+qsMRXaptI3oFYfr/Cx4GXLZJL+/aqh/GcS3NQAeEow25cMoXdqy/4xAiq9BrHNMszlsBHIIahUTtGe4DxFFDNPKj3oqh/3LMft9/TgRVEmDogz1DPCDr18tKUejYWk38UONsrTFf9fViUApCnkU5GOrq/cFr3qCMDqzUYkkPlXBjtkcygzaDOvA1GmCNXXytUek7Qzx07j5qsr01xka214p62A0xMz64R7ELebtHbl7BNfd5T4M5nOSN+ugO33LI88N8jLxx8j6ZLMsTQ7zohv1aeWrDmipIFRGB8jqS0uC3qQVPGAEiVVpW68LqQ6wk6KcALYqhnhtT3y/gQ3p9IbVe0DSmSJvVsiFF4oNvybuIw/2vTRu8kTYGFYZCt+GC1bZMDVO+oCUnQPb1vFInWTh/Ew=
+  app: super-fun-backend
+  skip-cleanup: true
