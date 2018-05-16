@@ -22,13 +22,29 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/v1/states', (req, res) => {
-  database('states').select()
-    .then(states => {
-      return res.status(200).json({states})
-    })
-    .catch(err => {
-      return res.status(500).json({err})
-    })
+  const stationQuery = req.param('numberOfStations');
+
+  if (stationQuery) {
+    database('states').where('numberOfStations', stationQuery).select()
+      .then(states => {
+        if (states.length) {
+          return res.status(200).json({states})
+        } else {
+          return res.status(404).json('No results matching your request.')
+        }
+      })
+      .catch(err => {
+        return res.status(500).json({err})
+      })  
+  } else {
+    database('states').select()
+      .then(states => {
+        return res.status(200).json({states})
+      })
+      .catch(err => {
+        return res.status(500).json({err})
+      })
+  }
 })
 
 app.get('/api/v1/states/:id', (req, res) => {
