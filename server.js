@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const jwt = require('jsonwebtoken');
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -10,12 +11,34 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 3000);
+app.set('secretKey', 'delinquents');
 
 app.locals.title = 'BYOB';
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}`)
 })
+
+const checkAuth = (request, response, next) => {
+  const { token } = request.headers;
+  const cert = app.get('secretKey');
+  
+  if (token) {
+    jwt.verify(token, cert, (err, decoded) => {
+      if (!decoded) {
+        return response.status(403).json('Invalid Token')
+      } else {
+        if (decoded.admin) {
+          next()
+        } else {
+          return response.status(403).json('You do not have admin privileges')
+        }
+      }
+    })
+  } else {
+    return response.status(403).json({message: 'You must be authorized to hit this endpoint.'})
+  }
+}
 
 app.get('/', (req, res) => {
   res.send('HIIIII!!!!!')
@@ -85,7 +108,8 @@ app.get('/api/v1/cities/:id', (req, res) => {
     })
 })
 
-app.post('/api/v1/states', (req, res) => {
+app.post('/api/v1/states', checkAuth, (req, res) => {
+  
   const state = req.body;
 
   for (let requiredParameter of ['state', 'numberOfStations']) {
@@ -104,7 +128,7 @@ app.post('/api/v1/states', (req, res) => {
     })
 })
 
-app.post('/api/v1/cities', (req, res) => {
+app.post('/api/v1/cities', checkAuth, (req, res) => {
   const city = req.body;
 
   for (let requiredParameter of ['city', 'BD', 'CNG', 'E85', 'ELEC', 'HY', 'LNG', 'LPG']) {
@@ -123,7 +147,7 @@ app.post('/api/v1/cities', (req, res) => {
     })
 })
 
-app.patch('/api/v1/states/:id', (req, res) => {
+app.patch('/api/v1/states/:id', checkAuth, (req, res) => {
   const state = req.body;
 
   if (state.state || state.numberOfStations) {
@@ -140,7 +164,7 @@ app.patch('/api/v1/states/:id', (req, res) => {
   }
 })
 
-app.patch('/api/v1/cities/:id', (req, res) => {
+app.patch('/api/v1/cities/:id', checkAuth, (req, res) => {
   const city = req.body;
 
   if (city.city || city.BD || city.CNG || city.E85 || city.ELEC || city.HY || city.LNG || city.LPG ) {
@@ -157,7 +181,7 @@ app.patch('/api/v1/cities/:id', (req, res) => {
   }
 })
 
-app.delete('/api/v1/states/:id', (req, res) => {
+app.delete('/api/v1/states/:id', checkAuth, (req, res) => {
   database('states').where('id', req.params.id).del()
     .then(id => res.sendStatus(204))
     .catch(err => {
@@ -171,4 +195,22 @@ app.delete('/api/v1/cities/:id', (req, res) => {
     .catch(err => {
       return res.status(500).json({err})
     })
+})
+
+app.post('/authenticate', checkAuth, (request, response) => {
+  const {email, appName} = request.body;
+
+  if (email && appName) {
+    if (email.includes('turing.io')) {
+      const token = jwt.sign({email, appName, admin: true}, app.get('secretKey'), {expiresIn: '1hr'})
+
+      return response.status(201).json({token})
+    } else {
+      const token = jwt.sign({email, appName, admin: false}, app.get('secretKey'), {expiresIn: '1hr'})
+
+      return response.status(201).json({token})
+    }
+  } else {
+    response.status(404).json('You dont have the correct parameters.')
+  }
 })
