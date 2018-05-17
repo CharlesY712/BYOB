@@ -183,16 +183,25 @@ app.patch('/api/v1/cities/:id', checkAuth, (req, res) => {
 
 app.delete('/api/v1/states/:id', checkAuth, (req, res) => {
   database('states').where('id', req.params.id).del()
-    .then(id => res.sendStatus(204))
+    .then(deleteCount => {
+      if (deleteCount === 0) {
+        return res.status(422).json({error: 'no state found with that id'})
+      }
+      return res.status(204).json({deleteCount})
+    })
     .catch(err => {
       return res.status(500).json({err})
     })
 })
 
-app.delete('/api/v1/cities/:id', (req, res) => {
-  const test = database('cities').where('id', req.params.id);
+app.delete('/api/v1/cities/:id', checkAuth, (req, res) => {
   database('cities').where('id', req.params.id).del()
-    .then(id => res.sendStatus(204))
+    .then(deleteCount => {
+      if (deleteCount === 0) {
+        return res.status(422).json({error: 'no city found with that id'})
+      }
+      return res.sendStatus(204)
+    })
     .catch(err => {
       return res.status(500).json({err})
     })
