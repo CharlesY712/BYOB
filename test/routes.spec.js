@@ -135,7 +135,7 @@ describe('Endpoint tests', () => {
       })
   })
 
-  it('should create a new token with admin set to true', (done) => {
+  it('should POST a new token with admin set to true', (done) => {
     chai.request(app)
       .post('/authenticate')
       .send({
@@ -147,11 +147,12 @@ describe('Endpoint tests', () => {
         response.should.have.status(201);
         response.body.should.be.a('object');
         response.body.token.should.be.a('string');
+        done();
       })
-    done();
+    
   });
 
-  it('should create a different token with admin set to false', (done) => {
+  it('should POST a different token with admin set to false', (done) => {
     chai.request(app)
       .post('/authenticate')
       .send({
@@ -163,11 +164,12 @@ describe('Endpoint tests', () => {
         response.should.have.status(201);
         response.body.should.be.a('object');
         response.body.token.should.be.a('string');
+        done();
       })
-    done();
+    
   });
 
-  it('should throw a 404 error when missing params', (done) => {
+  it('should THROW a 404 ERROR when missing params', (done) => {
     chai.request(app)
       .post('/authenticate')
       .send({
@@ -176,8 +178,9 @@ describe('Endpoint tests', () => {
       .end((err, response) => {
         response.should.have.status(404);
         response.body.should.be.a('string');
+        done();
       })
-    done();
+    
   });
 
   it('should POST a new state', (done) => {
@@ -191,19 +194,19 @@ describe('Endpoint tests', () => {
       .end((err, response) => {
         response.should.have.status(201);
         response.body.should.be.a('string');
+        done();
       })
-    done();
   });
 
-  it('should error when missing a state param', (done) => {
+  it('should ERROR when missing a state param', (done) => {
     chai.request(app)
       .post('/api/v1/states')
       .set('token', token)
       .end((err, response) => {
         response.should.have.status(422);
         response.body.should.be.a('object');
+        done();
       })
-    done();
   });
 
   it('should POST a new city', (done) => {
@@ -218,16 +221,15 @@ describe('Endpoint tests', () => {
         ELEC: '4',
         HY: '5',
         LNG: '6',
-        LPG: '7',
-      })
-      .end((err, response) => {
+        LPG: '7'
+      }).end((err, response) => {
         response.should.have.status(201);
         response.body.should.be.a('string');
+        done();
       })
-    done();
   });
 
-  it('should error if missing a cities param', (done) => {
+  it('should ERROR if missing a cities param', (done) => {
     chai.request(app)
       .post('/api/v1/cities')
       .set('token', token)
@@ -236,12 +238,9 @@ describe('Endpoint tests', () => {
       })
       .end((err, response) => {
         response.should.have.status(422);
-        response.body.should.be.a('string');
-      })
-      .catch(err => {
-        throw err;
-      });
-    done();
+        response.error.message.should.be.a('string');
+        done();
+      }) 
   });
 
   it('should PATCH a state in states DB if it has state in body', (done) => {
