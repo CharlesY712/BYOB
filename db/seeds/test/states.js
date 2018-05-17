@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
       return knex('states').del();
     })
     .then(() => {
-      return knex('states').insert(stateData);
+      return knex('states').insert(stateData, 'id');
     })
     .then(() => {
       let cityPromises = [];
@@ -37,6 +37,6 @@ const createCity = (knex, city, state) => {
         LNG: fuels.LNG.total,
         LPG: fuels.LPG.total,
         state_id: stateRecord.id
-      })
+      }, 'id')
     })
 }
