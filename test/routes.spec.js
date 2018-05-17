@@ -154,6 +154,8 @@ describe('Endpoint tests', () => {
         throw err;
       });
     done();
+  });
+
   it('should PATCH a state in states DB if it has state in body', (done) => {
     chai.request(app)
       .patch('/api/v1/states/9')
