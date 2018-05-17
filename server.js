@@ -7,7 +7,7 @@ const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 
 const bodyParser = require('body-parser');
-
+app.use(express.static('public'));
 app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 3000);
@@ -40,10 +40,6 @@ const checkAuth = (request, response, next) => {
       .json({message: 'You must be authorized to hit this endpoint.'});
   }
 };
-
-app.get('/', (req, res) => {
-  res.send('HIIIII!!!!!');
-});
 
 app.get('/api/v1/states', (req, res) => {
   const stationQuery = req.param('numberOfStations');
