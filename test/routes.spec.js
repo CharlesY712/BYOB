@@ -34,6 +34,22 @@ describe('Endpoint tests', () => {
       })
   })
 
+  it('should query station search', (done) => {
+    chai.request(app)
+      .get('/api/v1/states?numberOfStations=16')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.be.an('array')
+        response.body.length.should.equal(1)
+        response.body[0].should.have.property('state')
+        response.body[0].state.should.equal('AK')
+        response.body[0].should.have.property('numberOfStations')
+        response.body[0].numberOfStations.should.equal(16)
+        done()
+      })
+  })
+
   it('should GET one state', (done) => {
     chai.request(app)
       .get('/api/v1/states/2')
