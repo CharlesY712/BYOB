@@ -190,6 +190,7 @@ app.delete('/api/v1/states/:id', checkAuth, (req, res) => {
 })
 
 app.delete('/api/v1/cities/:id', (req, res) => {
+  const test = database('cities').where('id', req.params.id);
   database('cities').where('id', req.params.id).del()
     .then(id => res.sendStatus(204))
     .catch(err => {
@@ -197,7 +198,7 @@ app.delete('/api/v1/cities/:id', (req, res) => {
     })
 })
 
-app.post('/authenticate', checkAuth, (request, response) => {
+app.post('/authenticate', (request, response) => {
   const {email, appName} = request.body;
 
   if (email && appName) {
