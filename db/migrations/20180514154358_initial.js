@@ -19,10 +19,10 @@ exports.up = function(knex, Promise) {
       table.integer('LNG').unsigned();
       table.integer('LPG').unsigned();
       table.integer('state_id').unsigned();
-      table.foreign('state_id').references('states.id')
-      table.timestamps(true, true)
+      table.foreign('state_id').references('states.id');
+      table.timestamps(true, true);
     })
-  ])
+  ]);
 };
 
 exports.down = function(knex, Promise) {

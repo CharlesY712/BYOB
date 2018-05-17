@@ -199,6 +199,6 @@ const stateData = [
     state: 'WY',
     numberOfStations: 98 
   }
-]
+];
 
 module.exports = stateData;
