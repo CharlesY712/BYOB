@@ -97,9 +97,9 @@ Example response:
 
 parameters (all required): 
 
-  state: string,
+    state: string,
   
-  numberOfStations: number
+    numberOfStations: number
   
 
 ### POST a new city
@@ -107,67 +107,67 @@ parameters (all required):
 
 parameters (all required):
  
- city: string,
+    city: string,
  
- BD: number,
+    BD: number,
  
- CNG: number,
+    CNG: number,
  
- E85: number,
+    E85: number,
  
- ELEC: number,
+    ELEC: number,
  
- HY: number,
+    HY: number,
  
- LNG: number,
+    LNG: number,
  
- LPG: number,
+    LPG: number,
 
 ### PATCH a state 
 /api/v1/states/:id
 
 parameters (at least one required):
   
-  state: 'WI'
+    state: 'WI'
   
-  AND/OR
+    AND/OR
   
-  numberOfStations: '29'    
+    numberOfStations: '29'    
 
 ### PATCH a city
 /api/v1/cities/:id
 
 parameters (at least one required):
    
-   city: string
+    city: string
    
-   AND/OR
+    AND/OR
    
-   BD: number
+    BD: number
    
-   AND/OR
+    AND/OR
    
-   CNG: number
+    CNG: number
    
-   AND/OR
+    AND/OR
    
-   E85: number
+    E85: number
    
-   AND/OR
+    AND/OR
    
-   ELEC: number
+    ELEC: number
    
-   AND/OR
+    AND/OR
    
-   HY: number
+    HY: number
    
-   AND/OR
+    AND/OR
    
-   LNG: number
+    LNG: number
    
-   AND/OR
+    AND/OR
    
-   LPG: number
+    LPG: number
 
 ### DELETE a state
 /api/v1/states/:id
