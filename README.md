@@ -94,47 +94,80 @@ Example response:
 ```
 ### POST a new state
 /api/v1/states
+
 parameters (all required): 
-  *state: string,
-  *numberOfStations: number
+
+  state: string,
+  
+  numberOfStations: number
+  
 
 ### POST a new city
 /api/v1/cities
+
 parameters (all required):
- *city: string,
- *BD: number,
- *CNG: number,
- *E85: number,
- *ELEC: number,
- *HY: number,
- *LNG: number,
- *LPG: number,
+ 
+ city: string,
+ 
+ BD: number,
+ 
+ CNG: number,
+ 
+ E85: number,
+ 
+ ELEC: number,
+ 
+ HY: number,
+ 
+ LNG: number,
+ 
+ LPG: number,
 
 ### PATCH a state 
 /api/v1/states/:id
+
 parameters (at least one required):
-  *state: 'WI'
+  
+  state: 'WI'
+  
   AND/OR
-  *numberOfStations: '29'    
+  
+  numberOfStations: '29'    
 
 ### PATCH a city
 /api/v1/cities/:id
+
 parameters (at least one required):
-   *city: string
+   
+   city: string
+   
    AND/OR
-   *BD: number
+   
+   BD: number
+   
    AND/OR
-   *CNG: number
+   
+   CNG: number
+   
    AND/OR
-   *E85: number
+   
+   E85: number
+   
    AND/OR
-   *ELEC: number
+   
+   ELEC: number
+   
    AND/OR
-   *HY: number
+   
+   HY: number
+   
    AND/OR
-   *LNG: number
+   
+   LNG: number
+   
    AND/OR
-   *LPG: number
+   
+   LPG: number
 
 ### DELETE a state
 /api/v1/states/:id
