@@ -1664,8 +1664,7 @@ const cityData = [
         }
       }
     }
-  }
-  ,
+  },
   {
     name: "Arlington",
     state: "VA",
