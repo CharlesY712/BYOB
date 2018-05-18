@@ -148,7 +148,7 @@ describe('Endpoint tests', () => {
         response.body.should.be.a('object');
         response.body.token.should.be.a('string');
         done();
-      })
+      });
     
   });
 
@@ -165,7 +165,7 @@ describe('Endpoint tests', () => {
         response.body.should.be.a('object');
         response.body.token.should.be.a('string');
         done();
-      })
+      });
     
   });
 
@@ -179,7 +179,7 @@ describe('Endpoint tests', () => {
         response.should.have.status(404);
         response.body.should.be.a('string');
         done();
-      })
+      });
     
   });
 
@@ -195,7 +195,7 @@ describe('Endpoint tests', () => {
         response.should.have.status(201);
         response.body.should.be.a('string');
         done();
-      })
+      });
   });
 
   it('should ERROR when missing a state param', (done) => {
@@ -206,7 +206,7 @@ describe('Endpoint tests', () => {
         response.should.have.status(422);
         response.body.should.be.a('object');
         done();
-      })
+      });
   });
 
   it('should POST a new city', (done) => {
@@ -226,7 +226,7 @@ describe('Endpoint tests', () => {
         response.should.have.status(201);
         response.body.should.be.a('string');
         done();
-      })
+      });
   });
 
   it('should ERROR if missing a cities param', (done) => {
@@ -240,7 +240,7 @@ describe('Endpoint tests', () => {
         response.should.have.status(422);
         response.error.message.should.be.a('string');
         done();
-      }) 
+      }); 
   });
 
   it('should PATCH a state in states DB if it has state in body', (done) => {
